@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import BookFlip from "./BookFlip";
 import BookInfo from "./BookInfo";
+import type { Book } from "../types/book";
+
+interface BooksProps {
+  books: Book[];
+}
 
 const BookWrapper = styled.div`
   width: 850px;
@@ -10,7 +15,7 @@ const BookWrapper = styled.div`
   margin: 2em;
 `;
 
-const Books = ({ books }) => {
+const Books = ({ books }: BooksProps) => {
   return (
     <>
       {books.map((book) => {

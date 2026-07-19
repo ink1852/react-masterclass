@@ -1,6 +1,5 @@
-//style
-import "./style.css";
 import Books from "./components/Books";
+import "./styles/App.css";
 
 const BOOK_API = [
   {

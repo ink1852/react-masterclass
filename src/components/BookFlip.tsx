@@ -1,7 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+import type { Book } from "../types/book";
 
-const Book = styled.div`
+interface BookProps {
+  $sideWidth: number;
+  $height: number;
+  $flip: boolean;
+}
+
+const BookWrapper = styled.div<BookProps>`
   --book-side-width: ${(prop) => prop.$sideWidth}px;
   --book-height: ${(prop) => prop.$height}px;
   --book-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
@@ -47,11 +54,15 @@ const BookBack = styled.img`
   box-shadow: var(--book-shadow);
 `;
 
-function BookFlip({ book }) {
+interface BookFlipProps {
+  book: Book;
+}
+
+function BookFlip({ book }: BookFlipProps) {
   const [flip, setFlip] = useState(false);
   return (
     <>
-      <Book
+      <BookWrapper
         $sideWidth={book.sideWidth}
         $height={book.height}
         $flip={flip}
@@ -60,7 +71,7 @@ function BookFlip({ book }) {
         <BookFront src={book.src.front} />
         <BookSide src={book.src.side} />
         <BookBack src={book.src.back} />
-      </Book>
+      </BookWrapper>
     </>
   );
 }

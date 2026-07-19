@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import type { Book } from "../types/book";
+
+interface BookInfoProps {
+  book: Book;
+}
 
 const Wrapper = styled.div`
   > * {
@@ -25,7 +30,7 @@ const Price = styled.span`
   border-radius: 4px;
 `;
 
-const BookInfo = ({ book }) => {
+const BookInfo = ({ book }: BookInfoProps) => {
   return (
     <>
       <Wrapper>
